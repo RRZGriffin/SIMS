@@ -2,40 +2,48 @@
       <div class="align-items-start w-25 back-left">
       
             <!-- Make this a tab for headings using php -->
-            <a href="./index.php" class="btn btn-secondary"><i class="fas fa-home"></i> Home</a> &emsp;
+            <a href="../Connection/function/f_logout.php" class="btn btn-secondary"><i class="fas fa-home"></i> Home</a> &emsp;
             
             <?php 
 
+                  echo (isset($_SESSION['MainMenu']))?
+                              '<a href="./sub_admin_page.php?" class="btn btn-warning">Main Menu</a> &emsp;' 
+                              : "";
+
                   echo (isset($_SESSION['Class']))? 
-                              '<a href="./section_page.php?page=0" class="btn btn-warning">Section Page</a> &emsp;' 
+                              '<a href="./sa_section_page.php?page=0" class="btn btn-warning">Section Page</a> &emsp;' 
                               : "";
 
                   echo (isset($_SESSION['Student']))? 
-                              '<a href="./a_s_class_page.php?id='.$_SESSION['section_id'].'" class="btn btn-warning">Class Page</a> &emsp;' 
+                              '<a href="./sa_s_class_page.php?id='.$_SESSION['section_id'].'" class="btn btn-warning">Class Page</a> &emsp;' 
                               : "";
 
                   echo (isset($_SESSION['Edit']))? 
-                              '<a href="./a_s_c_studentInfo_page.php?id='.$_SESSION['student_id'].'" class="btn btn-warning">Student page</a> &emsp;' 
+                              '<a href="./sa_s_c_studentInfo_page.php?id='.$_SESSION['student_id'].'" class="btn btn-warning">Student page</a> &emsp;' 
                               : "";
                   
                   echo (isset($_SESSION['Subject']))? 
-                              '<a href="./subject_page.php?page=0" class="btn btn-warning">Subject Page</a> &emsp;' 
+                              '<a href="./sa_subject_page.php?page=0" class="btn btn-warning">Subject Page</a> &emsp;' 
+                              : "";
+                  
+                  echo (isset($_SESSION['Activities']))? 
+                              '<a href="./sa_activities_page.php" class="btn btn-warning">Activities Page</a> &emsp;' 
                               : "";
 
                   echo (isset($_SESSION['research']))?
-                              '<a href="./research_page.php" class="btn btn-warning">Research Page</a> &emsp;'
+                              '<a href="./sa_research_page.php" class="btn btn-warning">Research Page</a> &emsp;'
                               : "";
                   
                   echo (isset($_SESSION['awards']))?
-                              '<a href="./awards_page.php" class="btn btn-warning">Awards Page</a> &emsp;'
+                              '<a href="./sa_act_awards_page.php" class="btn btn-warning">Awards Page</a> &emsp;'
                               : "";
 
                   echo (isset($_SESSION['seminar']))?
-                              '<a href="./webinar_page.php" class="btn btn-warning">Seminar Page</a> &emsp;'
+                              '<a href="./sa_act_webinar_page.php" class="btn btn-warning">Seminar Page</a> &emsp;'
                               : "";
 
                   echo (isset($_SESSION['competition']))?
-                              '<a href="./competition_page.php" class="btn btn-warning">Competition Page</a> &emsp;'
+                              '<a href="./sa_act_competition_page.php" class="btn btn-warning">Competition Page</a> &emsp;'
                               : "";
                   ?>
 
@@ -52,6 +60,14 @@
 <?php
       endif;
 ?>
+      <div class="float-end align-items-end row">     
+            <?php 
+                  echo ($add_btn)? '<a href="'.$add.'" class="btn col"><i class="fa-solid fa-square-plus fa-2x"></i></a> &emsp;':"";
+                  // delete prompt will appear with warning "The data of student will permanently deleted and irreversible"
+                  echo ($delete_btn)?'<a href="../Connection/function/f_delete_student.php?type='.$datatypeDelete.'" class="btn col"><i class="fa-solid fa-trash-can fa-2x"></i></a> &emsp;':"";
+                  echo ($edit_btn)?'<a href="'.$edit.'" class="btn col" ><i class="fa-solid fa-pen-to-square fa-2x"></i></a>':"";
+            ?>
+      </div>
 
       <div class="back-right">
             <?php  
