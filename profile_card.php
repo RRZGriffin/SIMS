@@ -9,6 +9,7 @@
                         <br>
                         <div class="row mb-2">
                               <h3 class="fw-bold col">Activities and Research</h3>
+                              <a href="'.$edit.'" class="btn bg-dark col-md-1"><img src="../Assets/icons/add_icon.png" alt="" class="extra" ></a>
                         </div>
                         <div class="border border-2 rounded p-3">
 <?php 
